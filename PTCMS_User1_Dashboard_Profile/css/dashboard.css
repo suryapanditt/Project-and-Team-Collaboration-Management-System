@@ -1,0 +1,615 @@
+/* =========================================================
+   PTCMS - User 1
+   Module: Dashboard + Profile
+   Technology: HTML5 + CSS3 only
+   ========================================================= */
+
+/* ---------- Basic Reset ---------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6f8;
+    color: #1f2937;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    width: 90%;
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+/* ---------- Header / Navigation ---------- */
+
+.site-header {
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.nav-container {
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 700;
+    color: #1d4ed8;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    flex-wrap: wrap;
+}
+
+.navbar a {
+    padding: 9px 12px;
+    color: #4b5563;
+    font-size: 14px;
+    border-radius: 6px;
+    transition: 0.2s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    background: #eaf1ff;
+    color: #1d4ed8;
+}
+
+/* ---------- Common Text ---------- */
+
+.small-text {
+    color: #1d4ed8;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.text-link {
+    color: #1d4ed8;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.text-link:hover {
+    text-decoration: underline;
+}
+
+/* ---------- Welcome ---------- */
+
+.welcome-section {
+    padding: 35px 0 20px;
+}
+
+.welcome-card {
+    background: linear-gradient(135deg, #1d4ed8, #2563eb);
+    color: #ffffff;
+    border-radius: 12px;
+    padding: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    box-shadow: 0 8px 20px rgba(29, 78, 216, 0.15);
+}
+
+.welcome-card .small-text {
+    color: #dbeafe;
+}
+
+.welcome-card h1 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.welcome-card p:not(.small-text) {
+    color: #e5efff;
+}
+
+.primary-btn {
+    display: inline-block;
+    background: #ffffff;
+    color: #1d4ed8;
+    padding: 11px 18px;
+    border-radius: 6px;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: 0.2s;
+}
+
+.primary-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* ---------- Statistics ---------- */
+
+.stats-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    padding: 20px 0;
+}
+
+.stat-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.stat-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    background: #eaf1ff;
+    color: #1d4ed8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+.stat-card p {
+    color: #6b7280;
+    font-size: 13px;
+}
+
+.stat-card h2 {
+    font-size: 25px;
+    margin-top: 2px;
+}
+
+/* ---------- Dashboard Layout ---------- */
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    padding: 10px 0 40px;
+}
+
+.content-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.section-heading h2 {
+    font-size: 21px;
+}
+
+.count-badge {
+    background: #eaf1ff;
+    color: #1d4ed8;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* ---------- Project Progress ---------- */
+
+.project-progress {
+    margin-bottom: 23px;
+}
+
+.project-progress:last-child {
+    margin-bottom: 0;
+}
+
+.progress-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 8px;
+}
+
+.progress-info h3 {
+    font-size: 15px;
+}
+
+.progress-info p {
+    color: #6b7280;
+    font-size: 12px;
+}
+
+.progress-info > span {
+    color: #1d4ed8;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.progress {
+    width: 100%;
+    height: 9px;
+    background: #e5e7eb;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: #2563eb;
+    border-radius: 10px;
+}
+
+.progress-75 {
+    width: 75%;
+}
+
+.progress-55 {
+    width: 55%;
+}
+
+.progress-35 {
+    width: 35%;
+}
+
+/* ---------- Deadlines ---------- */
+
+.deadline-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 14px 0;
+    border-bottom: 1px solid #eef0f2;
+}
+
+.deadline-item:last-child {
+    border-bottom: 0;
+}
+
+.deadline-item h3 {
+    font-size: 14px;
+}
+
+.deadline-item p {
+    color: #6b7280;
+    font-size: 12px;
+}
+
+.date-badge {
+    background: #fff4e5;
+    color: #b45309;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 5px 8px;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+
+/* ---------- Recent Activity ---------- */
+
+.recent-activity {
+    grid-column: 1 / 2;
+}
+
+.activity-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 13px 0;
+    border-bottom: 1px solid #eef0f2;
+}
+
+.activity-list li:last-child {
+    border-bottom: 0;
+}
+
+.activity-dot {
+    width: 10px;
+    height: 10px;
+    background: #2563eb;
+    border-radius: 50%;
+    margin-top: 6px;
+    flex-shrink: 0;
+}
+
+.activity-list strong {
+    font-size: 14px;
+}
+
+.activity-list p {
+    color: #6b7280;
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+/* ---------- Task Summary ---------- */
+
+.task-summary {
+    grid-column: 2 / 3;
+}
+
+.task-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 13px 0;
+    border-bottom: 1px solid #eef0f2;
+    color: #6b7280;
+    font-size: 13px;
+}
+
+.task-row:last-child {
+    border-bottom: 0;
+}
+
+.status-label {
+    padding: 5px 9px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.todo {
+    background: #f3f4f6;
+    color: #4b5563;
+}
+
+.progress-status {
+    background: #eaf1ff;
+    color: #1d4ed8;
+}
+
+.review {
+    background: #fff4e5;
+    color: #b45309;
+}
+
+.completed {
+    background: #e8f7ee;
+    color: #15803d;
+}
+
+/* ---------- Page Title ---------- */
+
+.page-title {
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 35px 0;
+}
+
+.page-title h1 {
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+
+.page-title > .container > p:last-child {
+    color: #6b7280;
+}
+
+/* ---------- Profile ---------- */
+
+.profile-layout {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 20px;
+    padding: 35px 0 50px;
+}
+
+.profile-top {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.profile-image {
+    width: 82px;
+    height: 82px;
+    border-radius: 50%;
+    background: #1d4ed8;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.profile-top h2 {
+    font-size: 24px;
+}
+
+.profile-top p {
+    color: #6b7280;
+    margin-bottom: 7px;
+}
+
+.profile-status {
+    display: inline-block;
+    background: #e8f7ee;
+    color: #15803d;
+    padding: 4px 9px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.profile-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding-top: 25px;
+}
+
+.info-item span {
+    display: block;
+    color: #6b7280;
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+
+.info-item strong {
+    font-size: 14px;
+}
+
+.profile-stats {
+    margin-bottom: 20px;
+}
+
+.mini-stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.mini-stat {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+}
+
+.mini-stat h3 {
+    color: #1d4ed8;
+    font-size: 24px;
+}
+
+.mini-stat p {
+    color: #6b7280;
+    font-size: 12px;
+}
+
+.simple-list {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.simple-list li {
+    margin-bottom: 10px;
+    color: #4b5563;
+    font-size: 14px;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+    background: #111827;
+    color: #d1d5db;
+    padding: 22px 0;
+    text-align: center;
+    font-size: 12px;
+}
+
+/* ---------- Responsive Design ---------- */
+
+@media (max-width: 950px) {
+    .nav-container {
+        flex-direction: column;
+        padding: 15px 0;
+    }
+
+    .navbar {
+        justify-content: center;
+    }
+
+    .stats-section {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .dashboard-grid,
+    .profile-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .recent-activity,
+    .task-summary {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 92%;
+    }
+
+    .welcome-card {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 25px;
+    }
+
+    .welcome-card h1 {
+        font-size: 25px;
+    }
+
+    .stats-section {
+        grid-template-columns: 1fr;
+    }
+
+    .navbar {
+        gap: 3px;
+    }
+
+    .navbar a {
+        font-size: 12px;
+        padding: 7px 8px;
+    }
+
+    .content-card {
+        padding: 18px;
+    }
+
+    .profile-info {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-top {
+        align-items: flex-start;
+    }
+
+    .profile-top h2 {
+        font-size: 20px;
+    }
+
+    .deadline-item {
+        align-items: flex-start;
+    }
+}
